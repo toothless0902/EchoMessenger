@@ -9,11 +9,20 @@ namespace EchoMessenger
 
         private void btnSend_Click(object sender, EventArgs e)
         {
-
+            string message = txtInput.Text.Trim();
+            
             if (!string.IsNullOrWhiteSpace(txtInput.Text))
             {
+                string timeStamp = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
 
-                lstMessages.Items.Add(txtInput.Text);
+                
+                string result = $"[{timeStamp}] {message}";
+
+                
+                lstMessages.Items.Add(result);
+
+                
+                lblCount.Text = $"현재 대화: {lstMessages.Items.Count}개";
 
 
                 txtInput.Clear();
