@@ -6,5 +6,12 @@ namespace EchoMessenger
         {
             InitializeComponent();
         }
+
+        private void btnSend_Click(object sender, EventArgs e)
+        {
+            lstMessages.Items.Add(txtInput.Text);
+
+            txtInput.Clear();
+        }
     }
 }
