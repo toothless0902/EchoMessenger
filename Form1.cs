@@ -9,9 +9,26 @@ namespace EchoMessenger
 
         private void btnSend_Click(object sender, EventArgs e)
         {
-            lstMessages.Items.Add(txtInput.Text);
 
-            txtInput.Clear();
+            if (!string.IsNullOrWhiteSpace(txtInput.Text))
+            {
+
+                lstMessages.Items.Add(txtInput.Text);
+
+
+                txtInput.Clear();
+            }
+
+
+            txtInput.Focus();
+        }
+
+        private void txtInput_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+               btnSend.PerformClick();
+            }
         }
     }
 }
